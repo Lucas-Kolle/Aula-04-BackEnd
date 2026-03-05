@@ -29,9 +29,11 @@
 
 
 //formas de criar um ARRAY
-const listaDeNomes  = ["José", "Maria", "João", "André", "Alex"] //criar atribuindo valores
-const listaClientes = []                        //atribuir valores depois de criar (cria sem nada)
+const listaDeNomes        = ["José", "Maria", "João", "André", "Alex"] //criar atribuindo valores
+const listaClientes       = []                        //atribuir valores depois de criar (cria sem nada)
+const listaDeFornecedores = []
 
+//função para exibir os dados do ARRAY
 const exibirDados = function(){
     //Exibe o objeto array e seu conteúdo no terminal
     console.log(listaDeNomes)
@@ -56,18 +58,19 @@ const exibirDados = function(){
         //usando o while (enquanto)
         console.log("\n********* WHILE *********")
         let cont = 0 
-        while(cont <= 4){
+        while(cont < listaDeNomes.length){
             console.log(`O nome do cliente é: ${listaDeNomes[cont]}`)
             cont = cont +1
         }
 
         //usando o for (para, durante...)
         console.log("\n********* FOR *********")
-        for(let contador = 0; contador <=4; contador++){
+        for(let contador = 0; contador < listaDeNomes.length; contador++){
             console.log(`O nome do cliente é: ${listaDeNomes[contador]}`)
         }
 
         //usando o for each (para cada elemento)
+        //retorna o conteúdo de cada elemento através de um CALL BACK
         console.log("\n********* FOR EACH *********")
         listaDeNomes.forEach(function(cliente){
             console.log(`O nome do cliente é: ${cliente}`)
@@ -84,6 +87,35 @@ const exibirDados = function(){
         for(cliente of listaDeNomes){
             console.log(`O nome do cliente é: ${cliente}`)
         }
+
+    //fim das estruturas de repetição.
+
+    //lenght -> mostra a quantidaade de itens dentro do ARRAY
+    console.log("\n********* EXIBIR QUANTIDADE DE ITENS DO ARRAY *********")
+    console.log(listaDeNomes.length)
 }
 
-exibirDados()
+//funçaõ para manipular os dados
+const manipularDados = function(){
+    //Adicionando valores novos novos no ARRAY através do indice
+    console.log("\n********* FORMA MANUAL *********")
+    listaClientes[0] = "José da Silva"
+    listaClientes[1] = "Maria da Silva"
+    listaClientes[2] = "João da Silva"
+    listaClientes[4] = "Maria Alex da Silva"
+
+    console.log(listaClientes)
+
+    //Permite adicionar novos valores no ARRAY, sempre no final da lista
+    console.log("\n********* UTILIZANDO O PUSH *********")
+    listaDeFornecedores.push("Luiz da Silva")
+    listaDeFornecedores.push("Zezinho da Silva")
+    listaDeFornecedores.push("Huguinho da Silva")
+    listaDeFornecedores.push("Zezinho da Silva", "André da Silva", "Geovana da Silva")
+
+    console.log(listaDeFornecedores)
+
+
+}
+
+manipularDados()
