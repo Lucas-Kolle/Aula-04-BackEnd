@@ -29,7 +29,7 @@
 
 
 //formas de criar um ARRAY
-const listaDeNomes        = ["José", "Maria", "João", "André", "Alex"] //criar atribuindo valores
+const listaDeNomes        = ["José", "Maria", "João", "André", "Alex", "Carlos", "Ana", "Bruna", "Jake", "José", "José da Silva"] //criar atribuindo valores
 const listaClientes       = []                        //atribuir valores depois de criar (cria sem nada)
 const listaDeFornecedores = []
 
@@ -113,9 +113,70 @@ const manipularDados = function(){
     listaDeFornecedores.push("Huguinho da Silva")
     listaDeFornecedores.push("Zezinho da Silva", "André da Silva", "Geovana da Silva")
 
-    console.log(listaDeFornecedores)
+    //Permite adicionar novos valores no ARRAY, sempre no inicio da lista
+    console.log("\n********* UTILIZANDO O UNSHIFT *********")
+    listaDeFornecedores.unshift(`Ana Carolina`)
+    console.table(listaDeFornecedores)
 
+    //Permite remover elementos do final da lista
+    console.log("\n********* UTILIZANDO O POP *********")
+    listaDeFornecedores.pop()
+    console.table(listaDeFornecedores)
 
+    //Permite remover elementos do começo da lista
+    console.log("\n********* UTILIZANDO O SHIFT *********")
+    listaDeFornecedores.shift()
+    console.table(listaDeFornecedores)
+
+    //Per,ite remover um elemento especifico, baseado no indice
+    console.log("\n********* UTILIZANDO O SPLICE *********")
+    listaDeFornecedores.splice(2,2) //A partir do indice x, remover y elementos = (x,y)
+    console.table(listaDeFornecedores)
 }
 
-manipularDados()
+//função para remover um item expecifico do ARRAY
+const removerItem = function(nome){
+
+//Usando o for in
+        //descobrindo o indice do elemento expecifico usando uma estrutura de repetição
+        //ele percorre o ARRAY até achar um conteúdo que seja igual ao nome digitado
+        //for(indice in listaDeNomes){
+            
+            //if(listaDeNomes[indice] == nome){ //se o conteúdo do indice for igual ao nome digitado ele entra aqui
+                //apagando o elemento
+                //listaDeNomes.splice(indice,1) //apagar 1 elemento a partir do item digitado
+            //}
+        //}
+
+    //Usando o indexOf()
+        //Retorna o indice de um elemento fazendo a busca pelo valor
+        //Se o indexOf() não encontrar conteúdo ele devolve -1
+        let indice = listaDeNomes.indexOf(nome)
+
+        if(indice != -1){
+            listaDeNomes.splice(indice,1)
+            return true
+        }else{
+            return false
+        }
+}
+
+//função para verificar a existencia de um item no ARRAY
+const verificarItem = function(nome){
+    //Verifica a existencia de um conteúdo de uma lista (retorna TRUE / FALSE)
+    return listaDeNomes.includes(nome)
+}
+
+//função que conta a quantidade de itens com um valor especifico
+const quantidadeItens = function(nome){
+
+    let cont = 0
+    listaDeNomes.forEach(function(item){
+        if(String(item).toUpperCase() == String(nome).toUpperCase())
+            cont = cont +1
+    })
+
+    return cont
+}
+
+console.log(quantidadeItens("José"))
