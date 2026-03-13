@@ -128,9 +128,14 @@ const manipularDados = function(){
     listaDeFornecedores.shift()
     console.table(listaDeFornecedores)
 
-    //Per,ite remover um elemento especifico, baseado no indice
+    //Permite remover um elemento especifico, baseado no indice
     console.log("\n********* UTILIZANDO O SPLICE *********")
     listaDeFornecedores.splice(2,2) //A partir do indice x, remover y elementos = (x,y)
+    console.table(listaDeFornecedores)
+
+    //Permite adicionar um elemento especifico, baseado no indice
+    console.log("\n********* UTILIZANDO O SPLICE *********")
+    listaDeFornecedores.splice(2,0,"Carlos da Silva") //Apartir do indice x, remover y (nesse caso não foi removido ninguém, apenas adicionado), adicionar z = (x,y,z)
     console.table(listaDeFornecedores)
 }
 
@@ -179,4 +184,4 @@ const quantidadeItens = function(nome){
     return cont
 }
 
-console.log(quantidadeItens("José"))
+manipularDados()
