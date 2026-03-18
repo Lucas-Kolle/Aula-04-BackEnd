@@ -283,6 +283,7 @@ const cadastroDeProdutos = function(){
         }
     ]
 
+    console.log("\n********* EXIBINDO O CONTEÚDO DO ARRAY USANDO O FOR EACH *********")
     //percorrendo o ARRAY "produtos" para exibir o conteúdo desejado
     produtos.forEach(function(itemProduto){
         console.log("\n")
@@ -300,6 +301,39 @@ const cadastroDeProdutos = function(){
         })
     })
 
+
+    console.log("\n********* PESQUISANDO UM ITEM PELO NOME *********")
+    //pesquisando um produto pelo nome
+    let nome = "Mouse"
+
+    //percorrendo ARRAY
+    produtos.forEach(function(itemProduto){
+
+        if(String(itemProduto.nome).toUpperCase() == String(nome).toUpperCase()){
+            console.log(itemProduto)
+        }
+    })
+
+    console.log("\n********* PESQUISANDO UM ITEM PELA COR *********")
+    //pesquisando um item pela cor
+    let cor = "Branco"
+    let status = false
+
+    produtos.forEach(function(itemProduto){
+
+        //percorrendo o ARRAY de cores para conseguir fazer o if / else
+        itemProduto.cor.forEach(function(itemCor){
+
+            if(String(itemCor.cor).toUpperCase() == String(cor).toUpperCase()){
+                console.log(itemProduto)
+                status = true
+            }
+        })
+    })
+
+    //condicional para exibir mensagem caso não haja nenhuma cor igual à pesquisada
+    if(!status)
+        console.log("Item pesquisado não foi encontrado!")
 }
 
 cadastroDeProdutos()
