@@ -283,16 +283,20 @@ const cadastroDeProdutos = function(){
         }
     ]
 
+    //percorrendo o ARRAY "produtos" para exibir o conteúdo desejado
+    produtos.forEach(function(itemProduto){
+        console.log("\n")
+        //vai exibir apenas o nome do produto sem colocar o ".nome" ele não consegue acessar o JSON para pegar o nome ou qualquer outro conteúdo desejado
+        console.log(`Produto: ${itemProduto.nome}`)
 
-    produtos.forEach(function(nomeProduto){
-        
-
-        nomeProduto.marca.forEach(function(marcaProduto){
-            
+        //percorre o objeto de marca dentro de cada produto, para trazer as marcas
+        itemProduto.marca.forEach(function(itemMarca){
+            console.log(`Marca: ${itemMarca}`)
         })
 
-        nomeProduto.cor.forEach(function(corProduto){
-        
+        //percorre o objeto de cor dentro de cada produto, para trazer as cores
+        itemProduto.cor.forEach(function(itemCor){
+            console.log(`cor: ${itemCor.cor}`)
         })
     })
 
